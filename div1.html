@@ -1,0 +1,97 @@
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html;" /> 
+<title>Untitled Document</title> 
+</head> 
+<style type="text/css"> 
+body{margin: 40px; padding: 0px;  
+}  
+#left{ 
+float: left; width: 24%; height: 1000px;
+} 
+#center{ 
+float: right; width: 70%; height: 1000px;
+}
+</style> 
+<body>
+
+<div id = "left">
+<h1 align = center>
+<br>
+<font size = 6
+      face = "Arial">
+A Multi-Stage Approach to Contour Extraction
+</font>
+</h1>
+<h2 align = center>
+<br>
+<font size = 4
+      color = #888888
+      face = "Arial">
+With Yuliang Guo, supervised by Prof. Benjamin Kimia
+</font>
+</h2>
+</div> 
+
+<div id = "center">
+  <br>
+  <h1>
+  <font color = #444444
+        size = 5
+        face = "Arial">
+    Introduction to this Project
+  </font>
+  </h1>
+  <p>
+  <font color = #888888
+        size = 3
+        face = "Arial">
+    Contour extraction is a key topic in computer vision, especially in topics related to object recognition and multi-view applications. In order to <br>
+    extract curve fragments, which contains chains of ordered edge points, from images, we propose a multi-stage approach to curve extraction where the <br>
+    curve fragment search space is iteratively reduced by removing unlikely candidates using geometric constrains, but without affecting recall, to a <br>
+    point where the application of an objective functional becomes appropriate. The process progresses in stages from local to global: (i) edges, (ii) curvelets, <br>
+    (iii) unambiguous curve fragments, (iv) resolving ambiguities to generate a full set of curve fragment candidates, (v) merging curve fragments based <br>
+    on a learned photometric and geometric cues as well a novel lateral edge sparsity cue, and (vi) the application of a learned objective functional to <br>
+    get a final selection of curve fragments. The process of our approach is shown in the figure below.<br>
+  </font>
+  </p>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src = "./img/flowchart.png" width = 240px height = 400px align = center>
+  <h1>
+  <font color = #444444
+        size = 5
+        face = "Arial">
+    Resolving Ambiguities in Contour Extraction
+  </font>
+  </h1>
+  <p>
+  <font color = #888888
+        size = 3
+        face = "Arial">
+    In the process of contour extraction, we try to resolve ambiguity of contours by group remaining edges. The first step is to construct a graph of all <br>
+    possible groupings, which is called a Hypothesis Graph. We define an energy function of contours and divide the Hypothesis Graph into hundreds <br>
+    of connected components for efficiency. A typical area of Hypothesis Graph is shown in the figure below, where the dashed lines are hypotheses.
+  </font>
+  </p>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src = "./img/ambiguity.png" width = 300px height = 225px align = center>
+  <p>
+  <font color = #888888
+        size = 3
+        face = "Arial">
+    In each connect component, Dijkstra's algorithm is used to build a shortest path tree between each pair of nodes to link under the energy function. <br>
+    Then the paths are ranked by their energy, then we add each path by its rank while avoiding overlap. After all connected components are solved, <br>
+    our system move on to detect and link junctions to form a complete contour fragment graph, using a priority queue. The input and output of <br>
+    ambiguity resolving stage are compared below.
+  </font>
+  </p>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src = "./img/before.png" width = 450px height = 300px align = center><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = #888888
+        size = 3
+        face = "Arial">Input of our system</font><br><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src = "./img/after.png" width = 450px height = 300px align = center><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = #888888
+        size = 3
+        face = "Arial">Output of our system</font><br><br>
+</div>
+
+</body> 
+</html> 
